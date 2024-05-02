@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HelloSpringController {
     // Responds to /hello?name=LaunchCode
-    @RequestMapping(value = 'hello', method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public String hello(@RequestParam String name) {
         return "Hello, " + name + "!";
@@ -19,17 +19,8 @@ public class HelloSpringController {
     }
 
     @GetMapping("form")
-    @ResponseBody
     public String helloForm() {
-        String html = "<html>" +
-                "<body>" +
-                "<form method = 'post' action = '/hello'>" +
-                "<input type = 'text' name = 'name'>" +
-                "<input type = 'submit' value = 'Greet Me!'>" +
-                "</form>" +
-                "</body>" +
-                "</html>";
-        return html;
+        return "form"; // access form template and remove @ResponseBody
     }
 
 }
